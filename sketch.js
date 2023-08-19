@@ -53,7 +53,7 @@ function draw() {
   for (var i = 0; i < balls.length; i++) {
     showCannonBalls(balls[i], i);
   }
-
+showBoat();
   cannon.display();
 }
 
@@ -79,3 +79,37 @@ function keyReleased() {
     balls[balls.length - 1].shoot();
   }
 }
+function showBoat()
+if (boats.length>0){
+  if(
+    boats[boats.length-1]===unefined || 
+    boats[boats.length-1].body.position.x<width-300;
+  ){
+    var  positions= [-40,-60,-70,-20]
+    position=random(positions);
+     var boat = new Boat(width-79, height - 60, 170, 170,positions);
+    boats.push(boat)
+  }
+  for(var e =0;e<boats.length;e++){
+    if(boats[e]){
+      Matter.Body.setVelocity(boat.body,{x:-0.9, y:0});
+      boats[e].display();
+      
+    }
+  }
+  
+      
+}else{
+  var boat = new Boat(width-79, height - 60, 170, 170,-80);
+boats.push(boat);
+  Matter.Body.setVelocity(boat.body,{x:-0.9, y:0})
+}
+
+
+
+
+  
+}
+
+
+
